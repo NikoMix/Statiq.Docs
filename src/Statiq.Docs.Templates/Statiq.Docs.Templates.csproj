@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <PackageType>Template</PackageType>
     <PackageId>Statiq.Docs.Templates</PackageId>
@@ -7,20 +6,21 @@
     <Authors>Dave Glick</Authors>
     <Description>Templates to use when creating a Statiq Docs application, Statiq Docs is a flexible static site generator.</Description>
     <PackageTags>dotnet-new;templates;Statiq;Static;StaticContent;StaticSite;Blog;BlogEngine </PackageTags>
-
     <IncludeContentInPack>true</IncludeContentInPack>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <IncludeSymbols>false</IncludeSymbols>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
     <ContentTargetFolders>content</ContentTargetFolders>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <Content Include="templates\**\*" Exclude="templates\**\bin\**;templates\**\obj\**;templates\**\.vs\**" />
     <Compile Remove="**\*" />
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.10.0" />
+  </ItemGroup>
   <Target Name="VersionBuild" BeforeTargets="PrepareForBuild">
-   <XmlPoke XmlInputPath="templates\statiq-docs\Statiq.Docs.Template.csproj" Query="Project/ItemGroup/PackageReference/@Version" Value="$(Version)" />
+    <XmlPoke XmlInputPath="templates\statiq-docs\Statiq.Docs.Template.csproj" Query="Project/ItemGroup/PackageReference/@Version" Value="$(Version)" />
   </Target>
 </Project>

@@ -1,16 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Description>Statiq Docs is a flexible API documentation generator.</Description>
     <PackageTags>Statiq Static StaticContent StaticSite Documentation Docs</PackageTags>
   </PropertyGroup>
-
   <ItemGroup>
     <None Include="Statiq.Docs.targets" Pack="true" PackagePath="build\$(TargetFramework)\" />
     <None Include="Statiq.Docs.targets" Pack="true" PackagePath="buildTransitive\$(TargetFramework)\" />
   </ItemGroup>
-
   <Choose>
     <When Condition=" '$(StatiqWebVersion)' == ''">
       <ItemGroup>
@@ -23,7 +20,6 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
-
   <Choose>
     <When Condition=" '$(StatiqFrameworkVersion)' == ''">
       <ItemGroup>
@@ -36,5 +32,4 @@
       </ItemGroup>
     </Otherwise>
   </Choose>
-
 </Project>
